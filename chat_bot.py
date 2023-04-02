@@ -1,7 +1,5 @@
-"""У цьому коді ми спочатку підключаємося до Telegram API за допомогою токена бота. Далі ми створюємо функцію `get_weather`, 
-яка отримує назву міста та повертає прогноз погоди для цього міста з сайту https://openweathermap.org/. 
-Функція `handle_message` обробляє повідомлення від користувачі
-Ключі (Token API) від telegram та openweathermap.org знаходиться у налаштуваннях файлу .env"""
+"""тестова версія використання бібліотеки python-telegram-bot для взаємодії 
+з Telegram API та бібліотеку requests для отримання даних з сайту."""
 import config
 import logging
 import telegram
@@ -9,24 +7,21 @@ import requests
 from dotenv import load_dotenv
  
 
-#load_dotenv()
+load_dotenv()
 #задаем уровень логов
 logging.basicConfig(level=logging.INFO)
 
-#инициализируем бота
-bot =  telegram.Bot(token=config.BOT_TOKEN)
-#dp = Dispatcher(bot)
-wk = config.YOUR_API_KEY
 # Підключаємося до Telegram API
-# bot = telegram.Bot(token='BOT_TOKEN')
-# print(bot)
+bot =  telegram.Bot(token='BOT_TOKEN')
+wak = YOUR_API_KEY
+print(bot)
 
 # Функція для отримання прогнозу погоди
 def get_weather(city):
     """Відправляємо запит до сервера та отримуємо результат у форматі JSON"""
     
     # Адреса для запиту до API
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={wk}&units=metric'
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={wak}&units=metric'
     # Отримуємо дані
     response = requests.get(url).json()
 
@@ -66,13 +61,3 @@ def handle_message(update, context):
     updater.dispatcher = dispatcher
     updater.start_polling()
     updater.idle()
-
-
-
-
-
-
-
-
-
-
