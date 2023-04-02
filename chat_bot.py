@@ -1,11 +1,13 @@
 """У цьому коді ми спочатку підключаємося до Telegram API за допомогою токена бота. Далі ми створюємо функцію `get_weather`, 
 яка отримує назву міста та повертає прогноз погоди для цього міста з сайту https://openweathermap.org/. 
-Функція `handle_message` обробляє повідомлення від користувачі"""
+Функція `handle_message` обробляє повідомлення від користувачі
+Ключі (Token API) від telegram та openweathermap.org знаходиться у налаштуваннях файлу .env"""
 import telegram
 import requests
+from dotenv import load_dotenv
+ 
 
-# Отримуємо API ключ бота
-BOT_TOKEN = 'YOUR_BOT_TOKEN'
+load_dotenv()
 
 # Підключаємося до Telegram API
 bot = telegram.Bot(token=BOT_TOKEN)
