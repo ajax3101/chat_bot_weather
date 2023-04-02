@@ -31,7 +31,7 @@ def get_weather(city, wak):
               f" Вологість: {humidity}%\n Тиск: {pressure} мм.рт.ст.\n Вітер: {wind} м/х\n"
               f" Схід сонця: {sunrise}\n Захід сонця: {sunset}.\n"
               f" Тривалість дня: {light_day}\n"
-              f" Погода: {weather}"
+              f" Тип погоди: {weather}"
               )
 
     except Exception as ex:
